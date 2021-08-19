@@ -1,5 +1,7 @@
 {
-  "name": "ionic-app-base",
-  "integrations": {},
+  "name": "ChordScale",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
