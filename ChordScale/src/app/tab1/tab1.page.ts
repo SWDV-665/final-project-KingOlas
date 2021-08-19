@@ -10,7 +10,7 @@ export class Tab1Page {
 
   constructor() {}
 
-  getChord(keyChoice, chordType) {
+  getChord(keyChoice: string, chordType: string) {
     let data;
     switch (chordType) {
         case 'maj':
@@ -35,7 +35,7 @@ export class Tab1Page {
     return data;
   }
 
-  majorChord(keyChoice) {
+  majorChord(keyChoice: string) {
     return {
         name: `${keyChoice}maj7`,
         chordScale: `${keyChoice} Major Scale`,
@@ -69,7 +69,7 @@ export class Tab1Page {
     }
   }
 
-  minorChord(keyChoice) {
+  minorChord(keyChoice: string) {
     return {
         name: `${keyChoice}min7`,
         chordScale: `${keyChoice} (Dorian) Minor Scale`,
@@ -90,7 +90,7 @@ export class Tab1Page {
     }
   }
 
-  domChord(keyChoice) {
+  domChord(keyChoice: string) {
     return {
         name: `${keyChoice}7`,
         chordScale: `${keyChoice} Mixolydian Scale`,
@@ -124,7 +124,7 @@ export class Tab1Page {
     }
   }
 
-  halfDimChord(keyChoice) {
+  halfDimChord(keyChoice: string) {
     return {
         name: `${keyChoice}min7b5`,
         chordScale: `${keyChoice} Half-Whole Dinimished Scale`,
@@ -142,7 +142,7 @@ export class Tab1Page {
     }
   }
 
-  fullDimChord(keyChoice) {
+  fullDimChord(keyChoice: string) {
     return {
         name: `${keyChoice}dim7`,
         chordScale: `${keyChoice} Whole-Half Dinimished Scale`,

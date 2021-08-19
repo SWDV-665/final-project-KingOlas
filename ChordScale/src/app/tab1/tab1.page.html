@@ -58,55 +58,52 @@
     </ion-list>
   </ion-card>
 
-  <ion-card>
-    <h3 class="ion-text-center" *ngIf="data == null">
+  <ion-card *ngIf="data == null">
+    <h3 class="ion-text-center">
       <em>No Chord Selected</em>
     </h3>
+  </ion-card>
 
-    <ion-item *ngIf="data != null">
-      <h3 style="text-align: center">Here are the notes that work best for playing over</h3>
-      <h1 style="text-align: center">{{data.name}}</h1>
-          
-      <ion-item>
-          <h2>Standard Scale & Notes</h2>
+  <ion-card *ngIf="data != null">
+    <h3>Here are the notes that work best for playing over</h3>
+    <h1 style="text-align: center">{{data.name}}</h1>
+        
+    <ion-item>
+        <h2>Standard Scale & Notes</h2>
 
-          <h3>{{data.chordScale}}:</h3>
-          <h4 style="margin-left: 2%">{{data.scale.join(' - ')}}</h4>
+        <h3>{{data.chordScale}}:</h3>
+        <h4 *ngFor="let degrees of scale" style="margin-left: 2%">{{data.scale}}</h4>
 
-          <h3>{{data.chord_guide_tone.name}}:</h3>
-          <h4 style="margin-left: 2%">{{data.chord_guide_tone.keys.join(' - ')}}</h4>
-      </ion-item>
-  
-      <ion-item *ngIf="data.extensions != null">
-
-        <ion-item *ngIf="data.extensions != null">
-          <h2>More Interesting Scales & Notes</h2>
-          <h3>Useful Extentions ({{data.extensions.name}}):</h3>
-          <h4 style="margin-left: 2%">{{data.extensions.keys.join(' - ')}}</h4>
-        </ion-item>
-
-        <ion-item *ngIf="data.extra_extensions != null">
-          <h3>{{data.extra_extensions[0].name}}:</h3>
-          <h4 style="margin-left: 2%">{{data.extra_extensions[0].keys.join(' - ')}}</h4>
-
-          <h3>{{data.extra_extensions[1].name}}:</h3>
-          <h4 style="margin-left: 2%">{{data.extra_extensions[1].keys.join(' - ')}}</h4>
-
-          <h3>Interesting Extention(s) ({{data.extra_extensions[2].name}}):</h3>
-          <h4 style="margin-left: 2%">{{data.extra_extensions[2].keys.join(' - ')}}</h4>
-        </ion-item>
-
-      </ion-item>
-
-      <ion-item *ngIf="data != null">
-          <h2>Notes To Avoid</h2>
-          <h3>{{data.notes_to_avoid.name}}:</h3>
-          <h3 style="margin-left: 2%">{{data.notes_to_avoid.keys.join(' - ')}}</h3>
-      </ion-item>
-  
+        <h3>{{data.chord_guide_tone.name}}:</h3>
+        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.chord_guide_tone.keys}}</h4>
     </ion-item>
 
+    <ion-item *ngIf="data.extensions != null">
 
+      <ion-item *ngIf="data.extensions != null">
+        <h2>More Interesting Scales & Notes</h2>
+        <h3>Useful Extentions ({{data.extensions.name}}):</h3>
+        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extensions.keys}}</h4>
+      </ion-item>
+
+      <ion-item *ngIf="data.extra_extensions != null">
+        <h3>{{data.extra_extensions[0].name}}:</h3>
+        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[0].keys}}</h4>
+
+        <h3>{{data.extra_extensions[1].name}}:</h3>
+        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[1].keys}}</h4>
+
+        <h3>Interesting Extention(s) ({{data.extra_extensions[2].name}}):</h3>
+        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[2].keys}}</h4>
+      </ion-item>
+
+    </ion-item>
+
+    <ion-item *ngIf="data != null">
+        <h2>Notes To Avoid</h2>
+        <h3>{{data.notes_to_avoid.name}}:</h3>
+        <h3 *ngFor="let degree of keys" style="margin-left: 2%">{{data.notes_to_avoid.keys}}</h3>
+    </ion-item>
   </ion-card>
   
 </ion-content>
