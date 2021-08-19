@@ -13,5 +13,45 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="ChordScale Calculator"></app-explore-container>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Chord Selection
+      </ion-label>
+    </ion-list-header>
+  
+    <ion-item>
+      <ion-label>Root</ion-label>
+      <ion-select placeholder="Select Chord Root" okText="Okay" cancelText="Cancel">
+        <ion-select-option value="c">C</ion-select-option>
+        <ion-select-option value="c#">C#</ion-select-option>
+        <ion-select-option value="db">Db</ion-select-option>
+        <ion-select-option value="d">D</ion-select-option>
+        <ion-select-option value="eb">Eb</ion-select-option>
+        <ion-select-option value="e">E</ion-select-option>
+        <ion-select-option value="f">F</ion-select-option>
+        <ion-select-option value="f#">F#</ion-select-option>
+        <ion-select-option value="gb">Gb</ion-select-option>
+        <ion-select-option value="g">G</ion-select-option>
+        <ion-select-option value="ab">Ab</ion-select-option>
+        <ion-select-option value="a">A</ion-select-option>
+        <ion-select-option value="bb">Bb</ion-select-option>
+        <ion-select-option value="b">B</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select placeholder="Select Chord Type" okText="Okay" cancelText="Cancel">
+        <ion-select-option value="maj">Major</ion-select-option>
+        <ion-select-option value="min">Minor</ion-select-option>
+        <ion-select-option value="dom">Dominant</ion-select-option>
+        <ion-select-option value="halfDim">Half Diminished</ion-select-option>
+        <ion-select-option value="fullDim">Fully Diminished</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block">Calculate!</ion-button>
+  </ion-list>
+  
 </ion-content>
