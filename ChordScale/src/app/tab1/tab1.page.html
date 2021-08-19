@@ -24,8 +24,8 @@
     <ion-list>
     
       <ion-item>
-        <ion-label>Root</ion-label>
-        <ion-select placeholder="Select Chord Root" okText="Okay" cancelText="Cancel">
+        <ion-label for="keyChoice">Root</ion-label>
+        <ion-select id="keyChoice" name="keyChoice" placeholder="Select Chord Root" okText="Okay" cancelText="Cancel">
           <ion-select-option name="c" value="C">C</ion-select-option>
           <ion-select-option name="cSharp" value="C#">C#</ion-select-option>
           <ion-select-option name="dFlat" value="Db">Db</ion-select-option>
@@ -44,8 +44,8 @@
       </ion-item>
     
       <ion-item>
-        <ion-label>Type</ion-label>
-        <ion-select placeholder="Select Chord Type" okText="Okay" cancelText="Cancel">
+        <ion-label for="chordType">Type</ion-label>
+        <ion-select id="chordType" name="chordType" placeholder="Select Chord Type" okText="Okay" cancelText="Cancel">
           <ion-select-option name="major" value="maj">Major</ion-select-option>
           <ion-select-option name="minor" value="min">Minor</ion-select-option>
           <ion-select-option name="dominant" value="dom">Dominant</ion-select-option>
@@ -54,14 +54,59 @@
         </ion-select>
       </ion-item>
 
-      <ion-button expand="block" type ="submit">Calculate!</ion-button>
+      <ion-button (click)="getChord(keyChoice, chordType)" expand="block" type ="submit">Calculate!</ion-button>
     </ion-list>
   </ion-card>
 
   <ion-card>
-    <h3 class="ion-text-center" *ngIf="data === null">
+    <h3 class="ion-text-center" *ngIf="data == null">
       <em>No Chord Selected</em>
     </h3>
+
+    <ion-item *ngIf="data != null">
+      <h3 style="text-align: center">Here are the notes that work best for playing over</h3>
+      <h1 style="text-align: center">{{data.name}}</h1>
+          
+      <ion-item>
+          <h2>Standard Scale & Notes</h2>
+
+          <h3>{{data.chordScale}}:</h3>
+          <h4 style="margin-left: 2%">{{data.scale.join(' - ')}}</h4>
+
+          <h3>{{data.chord_guide_tone.name}}:</h3>
+          <h4 style="margin-left: 2%">{{data.chord_guide_tone.keys.join(' - ')}}</h4>
+      </ion-item>
+  
+      <ion-item *ngIf="data.extensions != null">
+
+        <ion-item *ngIf="data.extensions != null">
+          <h2>More Interesting Scales & Notes</h2>
+          <h3>Useful Extentions ({{data.extensions.name}}):</h3>
+          <h4 style="margin-left: 2%">{{data.extensions.keys.join(' - ')}}</h4>
+        </ion-item>
+
+        <ion-item *ngIf="data.extra_extensions != null">
+          <h3>{{data.extra_extensions[0].name}}:</h3>
+          <h4 style="margin-left: 2%">{{data.extra_extensions[0].keys.join(' - ')}}</h4>
+
+          <h3>{{data.extra_extensions[1].name}}:</h3>
+          <h4 style="margin-left: 2%">{{data.extra_extensions[1].keys.join(' - ')}}</h4>
+
+          <h3>Interesting Extention(s) ({{data.extra_extensions[2].name}}):</h3>
+          <h4 style="margin-left: 2%">{{data.extra_extensions[2].keys.join(' - ')}}</h4>
+        </ion-item>
+
+      </ion-item>
+
+      <ion-item *ngIf="data != null">
+          <h2>Notes To Avoid</h2>
+          <h3>{{data.notes_to_avoid.name}}:</h3>
+          <h3 style="margin-left: 2%">{{data.notes_to_avoid.keys.join(' - ')}}</h3>
+      </ion-item>
+  
+    </ion-item>
+
+
   </ion-card>
   
 </ion-content>
