@@ -26,36 +26,42 @@
       <ion-item>
         <ion-label>Root</ion-label>
         <ion-select placeholder="Select Chord Root" okText="Okay" cancelText="Cancel">
-          <ion-select-option value="c">C</ion-select-option>
-          <ion-select-option value="c#">C#</ion-select-option>
-          <ion-select-option value="db">Db</ion-select-option>
-          <ion-select-option value="d">D</ion-select-option>
-          <ion-select-option value="eb">Eb</ion-select-option>
-          <ion-select-option value="e">E</ion-select-option>
-          <ion-select-option value="f">F</ion-select-option>
-          <ion-select-option value="f#">F#</ion-select-option>
-          <ion-select-option value="gb">Gb</ion-select-option>
-          <ion-select-option value="g">G</ion-select-option>
-          <ion-select-option value="ab">Ab</ion-select-option>
-          <ion-select-option value="a">A</ion-select-option>
-          <ion-select-option value="bb">Bb</ion-select-option>
-          <ion-select-option value="b">B</ion-select-option>
+          <ion-select-option name="c" value="C">C</ion-select-option>
+          <ion-select-option name="cSharp" value="C#">C#</ion-select-option>
+          <ion-select-option name="dFlat" value="Db">Db</ion-select-option>
+          <ion-select-option name="d" value="D">D</ion-select-option>
+          <ion-select-option name="eFlat" value="Eb">Eb</ion-select-option>
+          <ion-select-option name="e" value="E">E</ion-select-option>
+          <ion-select-option name="f" value="F">F</ion-select-option>
+          <ion-select-option name="fSharp" value="F#">F#</ion-select-option>
+          <ion-select-option name="gFlat" value="Gb">Gb</ion-select-option>
+          <ion-select-option name="g" value="G">G</ion-select-option>
+          <ion-select-option name="aFlat" value="Ab">Ab</ion-select-option>
+          <ion-select-option name="a" value="A">A</ion-select-option>
+          <ion-select-option name="bFlat" value="Bb">Bb</ion-select-option>
+          <ion-select-option name="b" value="B">B</ion-select-option>
         </ion-select>
       </ion-item>
     
       <ion-item>
         <ion-label>Type</ion-label>
         <ion-select placeholder="Select Chord Type" okText="Okay" cancelText="Cancel">
-          <ion-select-option value="maj">Major</ion-select-option>
-          <ion-select-option value="min">Minor</ion-select-option>
-          <ion-select-option value="dom">Dominant</ion-select-option>
-          <ion-select-option value="halfDim">Half Diminished</ion-select-option>
-          <ion-select-option value="fullDim">Fully Diminished</ion-select-option>
+          <ion-select-option name="major" value="maj">Major</ion-select-option>
+          <ion-select-option name="minor" value="min">Minor</ion-select-option>
+          <ion-select-option name="dominant" value="dom">Dominant</ion-select-option>
+          <ion-select-option name="halfDiminished" value="half">Half Diminished</ion-select-option>
+          <ion-select-option name="fullyDiminished" value="full">Fully Diminished</ion-select-option>
         </ion-select>
       </ion-item>
 
-      <ion-button expand="block">Calculate!</ion-button>
+      <ion-button expand="block" type ="submit">Calculate!</ion-button>
     </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <h3 class="ion-text-center" *ngIf="data === null">
+      <em>No Chord Selected</em>
+    </h3>
   </ion-card>
   
 </ion-content>
