@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as keyDict from '../keyDict.json';
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
