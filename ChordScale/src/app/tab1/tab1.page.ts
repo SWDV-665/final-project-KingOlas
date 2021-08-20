@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ChordServiceService } from '../chord-service.service';
-import { Media, MediaObject } from '@ionic-native/media/ngx';
+// import { Media, MediaObject } from '@ionic-native/media/ngx';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { Media, MediaObject } from '@ionic-native/media/ngx';
 })
 export class Tab1Page {
 
-  constructor(public chordService: ChordServiceService, private media: Media) {}
+  constructor(public chordService: ChordServiceService) {}
 
   getChord(keyChoice: string, chordType: string) {
     console.log('Getting Chord Data')
