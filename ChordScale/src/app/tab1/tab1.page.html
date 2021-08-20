@@ -54,7 +54,7 @@
         </ion-select>
       </ion-item>
 
-      <ion-button (click)="getChord(keyChoice, chordType)" expand="block" type ="submit">Calculate!</ion-button>
+      <ion-button (click)="getChord(keyChoice, chordType)" expand="block">Calculate!</ion-button>
     </ion-list>
   </ion-card>
 
@@ -83,18 +83,18 @@
       <ion-item *ngIf="data.extensions != null">
         <h2>More Interesting Scales & Notes</h2>
         <h3>Useful Extentions ({{data.extensions.name}}):</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extensions.keys}}</h4>
+        <h4 *ngFor="let degree of keys, let i = index" style="margin-left: 2%">{{data.extensions.keys}}</h4>
       </ion-item>
 
       <ion-item *ngIf="data.extra_extensions != null">
         <h3>{{data.extra_extensions[0].name}}:</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[0].keys}}</h4>
+        <h4 *ngFor="let degree of keys, let i = index" style="margin-left: 2%">{{data.extra_extensions[0].keys}}</h4>
 
         <h3>{{data.extra_extensions[1].name}}:</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[1].keys}}</h4>
+        <h4 *ngFor="let degree of keys, let i = index" style="margin-left: 2%">{{data.extra_extensions[1].keys}}</h4>
 
         <h3>Interesting Extention(s) ({{data.extra_extensions[2].name}}):</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[2].keys}}</h4>
+        <h4 *ngFor="let degree of keys, let i = index" style="margin-left: 2%">{{data.extra_extensions[2].keys}}</h4>
       </ion-item>
 
     </ion-item>
@@ -102,7 +102,7 @@
     <ion-item *ngIf="data != null">
         <h2>Notes To Avoid</h2>
         <h3>{{data.notes_to_avoid.name}}:</h3>
-        <h3 *ngFor="let degree of keys" style="margin-left: 2%">{{data.notes_to_avoid.keys}}</h3>
+        <h3 *ngFor="let degree of keys, let i = index" style="margin-left: 2%">{{data.notes_to_avoid.keys}}</h3>
     </ion-item>
   </ion-card>
   
