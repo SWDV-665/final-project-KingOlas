@@ -36,6 +36,7 @@ export class ChordServiceService {
   // }
 
   majorChord(keyChoice: string) {
+    console.log('Major Chord Data for' + keyChoice)
     return {
         name: `${keyChoice}maj7`,
         chordScale: `${keyChoice} Major Scale`,
@@ -70,6 +71,7 @@ export class ChordServiceService {
   }
 
   minorChord(keyChoice: string) {
+    console.log('Minor Chord Data for' + keyChoice)
     return {
         name: `${keyChoice}min7`,
         chordScale: `${keyChoice} (Dorian) Minor Scale`,
@@ -91,6 +93,7 @@ export class ChordServiceService {
   }
 
   domChord(keyChoice: string) {
+    console.log('Dominant Chord Data for' + keyChoice)
     return {
         name: `${keyChoice}7`,
         chordScale: `${keyChoice} Mixolydian Scale`,
@@ -125,6 +128,7 @@ export class ChordServiceService {
   }
 
   halfDimChord(keyChoice: string) {
+    console.log('Half Diminished Chord Data for' + keyChoice)
     return {
         name: `${keyChoice}min7b5`,
         chordScale: `${keyChoice} Half-Whole Dinimished Scale`,
@@ -143,6 +147,7 @@ export class ChordServiceService {
   }
 
   fullDimChord(keyChoice: string) {
+    console.log('Fully Diminished Chord Data for' + keyChoice)
     return {
         name: `${keyChoice}dim7`,
         chordScale: `${keyChoice} Whole-Half Dinimished Scale`,
