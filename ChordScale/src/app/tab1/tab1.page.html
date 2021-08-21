@@ -26,7 +26,7 @@
     
       <ion-item>
         <ion-label for="keyChoice">Root</ion-label>
-        <ion-select id="keyChoice" name="keyChoice" placeholder="Select Chord Root" okText="Okay" cancelText="Cancel">
+        <ion-select [(ngModel)]="keyChoice" id="keyChoice" name="keyChoice" placeholder="Select Chord Root" okText="Okay" cancelText="Cancel">
           <ion-select-option name="c" value="C">C</ion-select-option>
           <ion-select-option name="cSharp" value="C#">C#</ion-select-option>
           <ion-select-option name="dFlat" value="Db">Db</ion-select-option>
@@ -46,7 +46,7 @@
     
       <ion-item>
         <ion-label for="chordType">Type</ion-label>
-        <ion-select id="chordType" name="chordType" placeholder="Select Chord Type" okText="Okay" cancelText="Cancel">
+        <ion-select [(ngModel)]="chordType" id="chordType" name="chordType" placeholder="Select Chord Type" okText="Okay" cancelText="Cancel">
           <ion-select-option name="major" value="maj">Major</ion-select-option>
           <ion-select-option name="minor" value="min">Minor</ion-select-option>
           <ion-select-option name="dominant" value="dom">Dominant</ion-select-option>
@@ -75,10 +75,13 @@
         <h2>Standard Scale & Notes</h2>
 
         <h3>{{data.chordScale}}:</h3>
-        <h4 *ngFor="let degree of scale" style="margin-left: 2%">{{data.degree}}</h4>
+        <div *ngFor="let degree of data.scale">
+          <h4>{{degree}}</h4>
+        </div>
+        <!-- <h4 *ngFor="let degree of data.scale" style="margin-left: 2%">{{data.degree}}</h4> -->
 
         <h3>{{data.chord_guide_tone.name}}:</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.chord_guide_tone.degree}}</h4>
+        <h4 *ngFor="let degree of data.keys" style="margin-left: 2%">{{data.chord_guide_tone.degree}}</h4>
     </ion-item>
 
     <ion-item *ngIf="data.extensions != null">
@@ -86,18 +89,18 @@
       <ion-item *ngIf="data.extensions != null">
         <h2>More Interesting Scales & Notes</h2>
         <h3>Useful Extentions ({{data.extensions.name}}):</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extensions.degree}}</h4>
+        <h4 *ngFor="let degree of data.extensions.keys" style="margin-left: 2%">{{degree}}</h4>
       </ion-item>
 
       <ion-item *ngIf="data.extra_extensions != null">
         <h3>{{data.extra_extensions[0].name}}:</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[0].degree}}</h4>
+        <h4 *ngFor="let degree of data.extra_extensions[0].keys" style="margin-left: 2%">{{degree}}</h4>
 
         <h3>{{data.extra_extensions[1].name}}:</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[1].degree}}</h4>
+        <h4 *ngFor="let degree of data.extra_extensions[1].keys" style="margin-left: 2%">{{degree}}</h4>
 
         <h3>Interesting Extention(s) ({{data.extra_extensions[2].name}}):</h3>
-        <h4 *ngFor="let degree of keys" style="margin-left: 2%">{{data.extra_extensions[2].degree}}</h4>
+        <h4 *ngFor="let degree of data.extra_extensions[2].keys" style="margin-left: 2%">{{degree}}</h4>
       </ion-item>
 
     </ion-item>
@@ -105,7 +108,7 @@
     <ion-item *ngIf="data != null">
         <h2>Notes To Avoid</h2>
         <h3>{{data.notes_to_avoid.name}}:</h3>
-        <h3 *ngFor="let degree of keys" style="margin-left: 2%">{{data.notes_to_avoid.degree}}</h3>
+        <h3 *ngFor="let degree of data.notes_to_avoid.keys" style="margin-left: 2%">{{degree}}</h3>
     </ion-item>
   </ion-card>
   

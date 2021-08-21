@@ -10,32 +10,36 @@ import { ChordServiceService } from '../chord-service.service';
 })
 export class Tab1Page {
 
+  keyChoice: string
+  chordType: string
+  data
+
   constructor(public chordService: ChordServiceService) {}
 
   getChord(keyChoice: string, chordType: string) {
-    console.log('Getting Chord Data')
-    let data;
+    console.log('Getting Chord Data' + keyChoice + ' ' + chordType)
     switch (chordType) {
         case 'maj':
-            data = this.chordService.majorChord(keyChoice);
+            this.data = this.chordService.majorChord(keyChoice);
+            console.log(this.data)
             break;
         case 'min':
-            data = this.chordService.minorChord(keyChoice);
+          this.data = this.chordService.minorChord(keyChoice);
             break;
         case 'dom':
-            data = this.chordService.domChord(keyChoice);
+          this.data = this.chordService.domChord(keyChoice);
             break;
         case 'half':
-            data = this.chordService.halfDimChord(keyChoice);
+          this.data = this.chordService.halfDimChord(keyChoice);
             break;
         case 'full':
-            data = this.chordService.fullDimChord(keyChoice);
+          this.data = this.chordService.fullDimChord(keyChoice);
             break;
         default:
-            data = null;
+          this.data = null;
             break;
     }
-    return data;
+    return this.data;
   }
 
   // playTrack() {
