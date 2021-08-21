@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ChordServiceService } from '../chord-service.service';
-// import { Media, MediaObject } from '@ionic-native/media/ngx';
+import { MediaServiceService } from '../media-service.service';
+
 
 
 @Component({
@@ -14,10 +15,10 @@ export class Tab1Page {
   chordType: string
   data
 
-  constructor(public chordService: ChordServiceService) {}
+  constructor(public chordService: ChordServiceService, public mediaService: MediaServiceService) {}
 
   getChord(keyChoice: string, chordType: string) {
-    console.log('Getting Chord Data' + keyChoice + ' ' + chordType)
+    console.log('Getting Chord Data: ' + keyChoice + ' ' + chordType)
     switch (chordType) {
         case 'maj':
             this.data = this.chordService.majorChord(keyChoice);
@@ -45,6 +46,23 @@ export class Tab1Page {
     }
     return this.data;
   }
+
+  play() {
+    this.mediaService.playTrack();
+    console.log('Playing Track')
+  }
+
+  pause() {
+    this.mediaService.pauseTrack();
+    console.log('Track Paused')
+  }
+
+  stop() {
+    this.mediaService.stopTrack();
+    console.log('Track Stopped')
+  }
+
+
 
   // playTrack() {
   // const file: MediaObject = this.media.create('ChordScale/src/assets/Track 07 - SurfofDeath.m4a');

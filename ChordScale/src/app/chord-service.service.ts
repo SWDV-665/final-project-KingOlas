@@ -13,33 +13,8 @@ export class ChordServiceService {
     this.keyDict = jsonData['default']
   }
 
-  // getChord(keyChoice: string, chordType: string) {
-  //   let data;
-  //   switch (chordType) {
-  //       case 'maj':
-  //           data = this.majorChord(keyChoice);
-  //           break;
-  //       case 'min':
-  //           data = this.minorChord(keyChoice);
-  //           break;
-  //       case 'dom':
-  //           data = this.domChord(keyChoice);
-  //           break;
-  //       case 'half':
-  //           data = this.halfDimChord(keyChoice);
-  //           break;
-  //       case 'full':
-  //           data = this.fullDimChord(keyChoice);
-  //           break;
-  //       default:
-  //           data = null;
-  //           break;
-  //   }
-  //   return data;
-  // }
-
   majorChord(keyChoice: string) {
-    console.log('Major Chord Data for ' + keyChoice)
+    console.log(keyChoice + ' Major Chord Data Returned')
     // console.log(this.keyDict)
     return {
         name: `${keyChoice}maj7`,
@@ -75,7 +50,7 @@ export class ChordServiceService {
    }
 
   minorChord(keyChoice: string) {
-    console.log('Minor Chord Data for ' + keyChoice)
+    console.log(keyChoice + ' Minor Chord Data Returned')
     // console.log(this.keyDict)
     return {
         name: `${keyChoice}min7`,
@@ -103,7 +78,7 @@ export class ChordServiceService {
   }
 
   domChord(keyChoice: string) {
-    console.log('Dominant Chord Data for ' + keyChoice)
+    console.log(keyChoice + ' Dominant Chord Data Returned')
     // console.log(this.keyDict)
     return {
         name: `${keyChoice}7`,
@@ -139,7 +114,7 @@ export class ChordServiceService {
   }
 
   halfDimChord(keyChoice: string) {
-    console.log('Half Diminished Chord Data for ' + keyChoice)
+    console.log(keyChoice + ' Half-Diminished Chord Data Returned')
     // console.log(this.keyDict)
     return {
         name: `${keyChoice}min7b5`,
@@ -159,7 +134,7 @@ export class ChordServiceService {
   }
 
   fullDimChord(keyChoice: string) {
-    console.log('Fully Diminished Chord Data for ' + keyChoice)
+    console.log(keyChoice + ' Fully-Diminished Chord Data Returned')
     // console.log(this.keyDict)
     return {
         name: `${keyChoice}dim7`,
