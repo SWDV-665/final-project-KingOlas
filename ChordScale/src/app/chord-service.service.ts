@@ -40,7 +40,7 @@ export class ChordServiceService {
 
   majorChord(keyChoice: string) {
     console.log('Major Chord Data for ' + keyChoice)
-    console.log(this.keyDict)
+    // console.log(this.keyDict)
     return {
         name: `${keyChoice}maj7`,
         chordScale: `${keyChoice} Major Scale`,
@@ -76,7 +76,7 @@ export class ChordServiceService {
 
   minorChord(keyChoice: string) {
     console.log('Minor Chord Data for ' + keyChoice)
-    console.log(this.keyDict)
+    // console.log(this.keyDict)
     return {
         name: `${keyChoice}min7`,
         chordScale: `${keyChoice} (Dorian) Minor Scale`,
@@ -89,7 +89,12 @@ export class ChordServiceService {
             "name": "9, 11, 13",
             "keys": [this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]['6']]
         },
-        extra_extensions: null,
+        extra_extensions: [
+            {
+            "name": `Relative Major Scale`,
+            "keys": [this.keyDict[keyChoice]['b3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['b6'], this.keyDict[keyChoice]['b7'], this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2']]
+          }
+        ],
         notes_to_avoid: {
             "name": "3",
             "keys": [this.keyDict[keyChoice]["3"]]
@@ -99,7 +104,7 @@ export class ChordServiceService {
 
   domChord(keyChoice: string) {
     console.log('Dominant Chord Data for ' + keyChoice)
-    console.log(this.keyDict)
+    // console.log(this.keyDict)
     return {
         name: `${keyChoice}7`,
         chordScale: `${keyChoice} Mixolydian Scale`,
@@ -135,7 +140,7 @@ export class ChordServiceService {
 
   halfDimChord(keyChoice: string) {
     console.log('Half Diminished Chord Data for ' + keyChoice)
-    console.log(this.keyDict)
+    // console.log(this.keyDict)
     return {
         name: `${keyChoice}min7b5`,
         chordScale: `${keyChoice} Half-Whole Dinimished Scale`,
@@ -155,7 +160,7 @@ export class ChordServiceService {
 
   fullDimChord(keyChoice: string) {
     console.log('Fully Diminished Chord Data for ' + keyChoice)
-    console.log(this.keyDict)
+    // console.log(this.keyDict)
     return {
         name: `${keyChoice}dim7`,
         chordScale: `${keyChoice} Whole-Half Dinimished Scale`,

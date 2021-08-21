@@ -25,15 +25,19 @@ export class Tab1Page {
             break;
         case 'min':
           this.data = this.chordService.minorChord(keyChoice);
+          console.log(this.data)
             break;
         case 'dom':
           this.data = this.chordService.domChord(keyChoice);
+          console.log(this.data)
             break;
         case 'half':
           this.data = this.chordService.halfDimChord(keyChoice);
+          console.log(this.data)
             break;
         case 'full':
           this.data = this.chordService.fullDimChord(keyChoice);
+          console.log(this.data)
             break;
         default:
           this.data = null;
