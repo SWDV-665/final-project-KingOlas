@@ -1,64 +1,47 @@
 import { Injectable } from '@angular/core';
-import { Media, MediaObject } from '@ionic-native/media/ngx';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MediaServiceService {
 
-  constructor(private media: Media) { }
-
-  file: MediaObject = this.media.create('ChordScale/src/assets/Track 07 - SurfofDeath.m4a');
+  constructor(private nativeAudio: NativeAudio) {
+    console.log('Media Service Running')
+    this.nativeAudio.preloadSimple('uniqueId1', 'ChordScale/src/assets/Track 07 - SurfofDeath.m4a')
+   }
+   
+  file // ChordScale/src/assets/Track 07 - SurfofDeath.m4a
 
   playTrack() {
-    this.file.play();
+    console.log('playing ' + this.file)
+    this.nativeAudio.play('uniqueId1');
   }
 
   pauseTrack() {
+    console.log(this.file + ' paused')
     this.file.pause();
   }
 
   stopTrack() {
-    this.file.stop();
+    console.log(this.file + ' stopped')
+    this.nativeAudio.stop('uniqueId1')
   }
 
-  // playTrack() {
-  // const file: MediaObject = this.media.create('ChordScale/src/assets/Track 07 - SurfofDeath.m4a');
+  // this.nativeAudio.preloadSimple('uniqueId1', 'ChordScale/src/assets/Track 07 - SurfofDeath.m4a').then(onSuccess, onError);
+  // this.nativeAudio.preloadComplex('uniqueId2', 'ChordScale/src/assets/Track 07 - SurfofDeath.m4a', 1, 1, 0).then(onSuccess, onError);
 
-  // // to listen to plugin events:
+  // this.nativeAudio.play('uniqueId1').then(onSuccess, onError);
 
-  // file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
+  // // can optionally pass a callback to be called when the file is done playing
+  // this.nativeAudio.play('uniqueId1', () => console.log('uniqueId1 is done playing'));
 
-  // file.onSuccess.subscribe(() => console.log('Action is successful'));
+  // this.nativeAudio.loop('uniqueId2').then(onSuccess, onError);
 
-  // file.onError.subscribe(error => console.log('Error!', error));
+  // this.nativeAudio.setVolumeForComplexAsset('uniqueId2', 0.6).then(onSuccess,onError);
 
-  // // play the file
-  // file.play();
+  // this.nativeAudio.stop('uniqueId1').then(onSuccess,onError);
 
-  // // pause the file
-  // file.pause();
-
-  // // get current playback position
-  // file.getCurrentPosition().then((position) => {
-  //   console.log(position);
-  // });
-
-  // // get file duration
-  // let duration = file.getDuration();
-  // console.log(duration);
-
-  // // skip to 10 seconds (expects int value in ms)
-  // file.seekTo(10000);
-
-  // // stop playing the file
-  // file.stop();
-
-  // // release the native audio resource
-  // // Platform Quirks:
-  // // iOS simply create a new instance and the old one will be overwritten
-  // // Android you must call release() to destroy instances of media when you are done
-  // file.release();
-  // }
+  // this.nativeAudio.unload('uniqueId1').then(onSuccess,onError);
 
 }
