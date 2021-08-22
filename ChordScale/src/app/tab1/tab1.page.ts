@@ -4,6 +4,7 @@ import { MediaServiceService } from '../media-service.service';
 
 
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
