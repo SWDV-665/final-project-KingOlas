@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ChordServiceService } from '../chord-service.service';
 import { MediaServiceService } from '../media-service.service';
+import { ContactService } from '../contact.service';
 
 
 
@@ -16,9 +17,10 @@ export class Tab1Page {
   chordType: string
   data
 
-  constructor(public chordService: ChordServiceService, public mediaService: MediaServiceService) {}
+  constructor(public chordService: ChordServiceService, public mediaService: MediaServiceService, public contactService: ContactService) {}
 
   getChord(keyChoice: string, chordType: string) {
+    this.mediaService.getTrack(keyChoice, chordType)
     console.log('Getting Chord Data: ' + keyChoice + ' ' + chordType)
     switch (chordType) {
         case 'maj':
@@ -58,47 +60,9 @@ export class Tab1Page {
     console.log('Track Stopped')
   }
 
-
-
-  // playTrack() {
-  // const file: MediaObject = this.media.create('ChordScale/src/assets/Track 07 - SurfofDeath.m4a');
-
-  // // to listen to plugin events:
-
-  // file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
-
-  // file.onSuccess.subscribe(() => console.log('Action is successful'));
-
-  // file.onError.subscribe(error => console.log('Error!', error));
-
-  // // play the file
-  // file.play();
-
-  // // pause the file
-  // file.pause();
-
-  // // get current playback position
-  // file.getCurrentPosition().then((position) => {
-  //   console.log(position);
-  // });
-
-  // // get file duration
-  // let duration = file.getDuration();
-  // console.log(duration);
-
-  // // skip to 10 seconds (expects int value in ms)
-  // file.seekTo(10000);
-
-  // // stop playing the file
-  // file.stop();
-
-  // // release the native audio resource
-  // // Platform Quirks:
-  // // iOS simply create a new instance and the old one will be overwritten
-  // // Android you must call release() to destroy instances of media when you are done
-  // file.release();
-  // }
-
-
+  playFalse() {
+    this.contactService.mediaAlert();
+    console.log('Track Not Created Yet')
+  }
 
 }

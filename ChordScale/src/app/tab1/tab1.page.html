@@ -26,7 +26,7 @@
     
       <ion-item>
         <ion-label for="keyChoice">Root</ion-label>
-        <ion-select [(ngModel)]="keyChoice" id="keyChoice" name="keyChoice" placeholder="Select Chord Root" okText="Okay" cancelText="Cancel">
+        <ion-select [(ngModel)]="keyChoice" id="keyChoice" name="keyChoice" placeholder="Select Chord Root" okText="Select" cancelText="Cancel">
           <ion-select-option name="c" value="C">C</ion-select-option>
           <ion-select-option name="cSharp" value="C#">C#</ion-select-option>
           <ion-select-option name="dFlat" value="Db">Db</ion-select-option>
@@ -46,7 +46,7 @@
     
       <ion-item>
         <ion-label for="chordType">Type</ion-label>
-        <ion-select [(ngModel)]="chordType" id="chordType" name="chordType" placeholder="Select Chord Type" okText="Okay" cancelText="Cancel">
+        <ion-select [(ngModel)]="chordType" id="chordType" name="chordType" placeholder="Select Chord Type" okText="Select" cancelText="Cancel">
           <ion-select-option name="major" value="maj">Major</ion-select-option>
           <ion-select-option name="minor" value="min">Minor</ion-select-option>
           <ion-select-option name="dominant" value="dom">Dominant</ion-select-option>
@@ -68,22 +68,42 @@
 
 <!-- Chord Data Display  -->
   <ion-card *ngIf="data != null">
-    <ion-card-title>Here are the notes that work best for playing over {{data.name}}:</ion-card-title>
+    <ion-card-title>Useful Notes for {{data.name}}:</ion-card-title>
         
   <!-- Standard Scales & Notes: All Types -->
     <ion-item>Standard Scales & Notes</ion-item>
 
     <ion-grid>
-      <ion-row>{{data.chordScale}}:</ion-row>
-
       <ion-row>
-        <ion-col *ngFor="let degree of data.scale">{{degree}}</ion-col>
+        <ion-col size="4">{{data.chordScale}}:</ion-col>
+        <ion-col size="1" *ngFor="let degree of data.scale">{{degree}}</ion-col>
       </ion-row>
 
-      <ion-row>{{data.chord_guide_tone.name}}:</ion-row>
-      
       <ion-row>
-        <ion-col *ngFor="let degree of data.chord_guide_tone.keys">{{degree}}</ion-col>
+        <ion-button (click)="play()">
+          {{data.chordScale}}
+          <ion-icon name="play"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="stop()">
+          <ion-icon name="square"></ion-icon>
+        </ion-button>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="8">{{data.chord_guide_tone.name}}:</ion-col>
+        <ion-col size="1" *ngFor="let degree of data.chord_guide_tone.keys">{{degree}}</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-button (click)="playFalse()">
+          {{data.chord_guide_tone.name}}
+          <ion-icon name="play"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="stop()">
+          <ion-icon name="square"></ion-icon>
+        </ion-button>
       </ion-row>
     </ion-grid>
 
@@ -91,30 +111,70 @@
     <ion-item *ngIf="data.extensions != null">More Interesting Scales & Notes</ion-item>
 
     <ion-grid *ngIf="data.extensions != null">
-      <ion-row>Useful Extentions ({{data.extensions.name}}):</ion-row>
+      <ion-row>
+        <ion-col size="5">Useful Extentions ({{data.extensions.name}}):</ion-col>
+        <ion-col size="1" *ngFor="let degree of data.extensions.keys">{{degree}}</ion-col>
+      </ion-row>
 
       <ion-row>
-        <ion-col *ngFor="let degree of data.extensions.keys">{{degree}}</ion-col>
+        <ion-button (click)="playFalse()">
+          {{data.extensions.name}}
+          <ion-icon name="play"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="stop()">
+          <ion-icon name="square"></ion-icon>
+        </ion-button>
       </ion-row>
     </ion-grid>
 
     <ion-grid *ngIf="data.extra_extensions != null">
-      <ion-row>{{data.extra_extensions[0].name}}:</ion-row>
-
       <ion-row>
-        <ion-col *ngFor="let degree of data.extra_extensions[0].keys">{{degree}}</ion-col>
+        <ion-col size="4">{{data.extra_extensions[0].name}}:</ion-col>
+        <ion-col size="1" *ngFor="let degree of data.extra_extensions[0].keys">{{degree}}</ion-col>
       </ion-row>
 
-      <ion-row *ngIf="data.extra_extensions[1] != null">{{data.extra_extensions[1].name}}:</ion-row>
+      <ion-row *ngIf="data.extra_extensions != null">
+        <ion-button (click)="playFalse()">
+          {{data.extra_extensions[0].name}}
+          <ion-icon name="play"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="stop()">
+          <ion-icon name="square"></ion-icon>
+        </ion-button>
+      </ion-row>
 
       <ion-row *ngIf="data.extra_extensions[1] != null">
-        <ion-col *ngFor="let degree of data.extra_extensions[1].keys">{{degree}}</ion-col>
+        <ion-col size="4">{{data.extra_extensions[1].name}}:</ion-col>
+        <ion-col size="1" *ngFor="let degree of data.extra_extensions[1].keys">{{degree}}</ion-col>
       </ion-row>
 
-      <ion-row *ngIf="data.extra_extensions[2] != null">Interesting Extention(s) ({{data.extra_extensions[2].name}}):</ion-row>
+      <ion-row *ngIf="data.extra_extensions[1] != null">
+        <ion-button (click)="playFalse()">
+          {{data.extra_extensions[1].name}}
+          <ion-icon name="play"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="stop()">
+          <ion-icon name="square"></ion-icon>
+        </ion-button>
+      </ion-row>
 
       <ion-row *ngIf="data.extra_extensions[2] != null">
-        <ion-col *ngFor="let degree of data.extra_extensions[2].keys">{{degree}}</ion-col>
+        <ion-col size="7">Interesting Extention(s) ({{data.extra_extensions[2].name}}):</ion-col>
+        <ion-col size="1" *ngFor="let degree of data.extra_extensions[2].keys">{{degree}}</ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="data.extra_extensions[2] != null">
+        <ion-button (click)="playFalse()">
+          {{data.extra_extensions[2].name}}
+          <ion-icon name="play"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="stop()">
+          <ion-icon name="square"></ion-icon>
+        </ion-button>
       </ion-row>
     </ion-grid>
 
@@ -123,19 +183,20 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let degree of data.notes_to_avoid.keys">{{degree}}</ion-col>
+        <ion-col size="1" *ngFor="let degree of data.notes_to_avoid.keys">{{degree}}</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-button (click)="playFalse()">
+          Notes To Avoid
+          <ion-icon name="play"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="stop()">
+          <ion-icon name="square"></ion-icon>
+        </ion-button>
       </ion-row>
     </ion-grid>
-  </ion-card>
-
-  <ion-card class="ion-text-center">
-    <ion-button (click)="play()" class="ion-activatable ripple-parent">
-      <ion-icon name="play"></ion-icon>
-    </ion-button>
-
-    <ion-button (click)="stop()" class="ion-activatable ripple-parent">
-      <ion-icon name="square"></ion-icon>
-    </ion-button>
   </ion-card>
 
 </ion-content>

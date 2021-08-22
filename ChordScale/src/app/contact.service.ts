@@ -22,4 +22,18 @@ export class ContactService {
     console.log('onDidDismiss resolved with role', role);
   }
 
+  async mediaAlert() {
+    const alert = await this.alertController.create({
+      header: 'Media Not Created',
+      subHeader: 'We are working to create more Audio for you to hear.',
+      message: 'Come back and check frequently for updates!',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
 }
