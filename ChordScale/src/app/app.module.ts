@@ -6,13 +6,13 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { Media, MediaObject } from '@ionic-native/media/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeAudio],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Media],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

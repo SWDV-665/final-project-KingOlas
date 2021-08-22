@@ -20,6 +20,7 @@ export class ChordServiceService {
         name: `${keyChoice}maj7`,
         chordScale: `${keyChoice} Major Scale`,
         scale: [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']],
+        scaleFile: './assets/example1.mp3',
         chord_guide_tone: {
             "name": `${keyChoice} Major Chord/Guide Tones (1, 3, 5, 7)`,
             "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['7']]

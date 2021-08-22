@@ -52,11 +52,6 @@ export class Tab1Page {
     console.log('Playing Track')
   }
 
-  pause() {
-    this.mediaService.pauseTrack();
-    console.log('Track Paused')
-  }
-
   stop() {
     this.mediaService.stopTrack();
     console.log('Track Stopped')
