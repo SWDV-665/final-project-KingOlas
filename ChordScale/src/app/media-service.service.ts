@@ -11,7 +11,7 @@ export class MediaServiceService {
    }
    
 
-   file: MediaObject = this.media.create('./assets/example1.mp3');
+   file: MediaObject = this.media.create('./assets/mp3s/C Major scale.mp3');
 
   playTrack() {
     console.log('playing ' + this.file)
