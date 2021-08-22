@@ -20,28 +20,24 @@ export class MediaServiceService {
     switch (chordType) {
         case 'maj':
             this.file = this.media.create(`./assets/mp3s/${keyChoice} Major scale.mp3`);
-            console.log(this.file)
             break;
         case 'min':
           this.file = this.media.create(`./assets/mp3s/${keyChoice} Minor scale.mp3`);
-          console.log(this.file)
             break;
         case 'dom':
           this.file = this.media.create(`./assets/mp3s/${keyChoice} Mixolydian scale.mp3`);
-          console.log(this.file)
             break;
         case 'half':
           this.file = this.media.create(`./assets/mp3s/${keyChoice} Half-Diminished scale.mp3`);
-          console.log(this.file)
             break;
         case 'full':
           this.file = this.media.create(`./assets/mp3s/${keyChoice} Fully-Diminished scale.mp3`);
-          console.log(this.file)
             break;
         default:
           this.file = null;
             break;
     }
+    console.log('Successfully Loaded Audio')
     return this.file;
   }
 
