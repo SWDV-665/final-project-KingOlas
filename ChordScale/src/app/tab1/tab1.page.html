@@ -79,6 +79,7 @@
         <ion-col size="1" *ngFor="let degree of data.scale">{{degree}}</ion-col>
       </ion-row>
 
+    <!-- Play / Stop Buttons -->
       <ion-row>
         <ion-button (click)="play()">
           {{data.chordScale}}
@@ -95,6 +96,7 @@
         <ion-col size="1" *ngFor="let degree of data.chord_guide_tone.keys">{{degree}}</ion-col>
       </ion-row>
 
+    <!-- P/S Buttons -->
       <ion-row>
         <ion-button (click)="playFalse()">
           {{data.chord_guide_tone.name}}
@@ -116,6 +118,7 @@
         <ion-col size="1" *ngFor="let degree of data.extensions.keys">{{degree}}</ion-col>
       </ion-row>
 
+    <!-- P/S Buttons -->
       <ion-row>
         <ion-button (click)="playFalse()">
           {{data.extensions.name}}
@@ -134,6 +137,7 @@
         <ion-col size="1" *ngFor="let degree of data.extra_extensions[0].keys">{{degree}}</ion-col>
       </ion-row>
 
+    <!-- P/S Buttons -->
       <ion-row *ngIf="data.extra_extensions != null">
         <ion-button (click)="playFalse()">
           {{data.extra_extensions[0].name}}
@@ -150,6 +154,7 @@
         <ion-col size="1" *ngFor="let degree of data.extra_extensions[1].keys">{{degree}}</ion-col>
       </ion-row>
 
+    <!-- P/S Buttons -->
       <ion-row *ngIf="data.extra_extensions[1] != null">
         <ion-button (click)="playFalse()">
           {{data.extra_extensions[1].name}}
@@ -166,6 +171,7 @@
         <ion-col size="1" *ngFor="let degree of data.extra_extensions[2].keys">{{degree}}</ion-col>
       </ion-row>
 
+    <!-- P/S Buttons -->
       <ion-row *ngIf="data.extra_extensions[2] != null">
         <ion-button (click)="playFalse()">
           {{data.extra_extensions[2].name}}
@@ -186,6 +192,7 @@
         <ion-col size="1" *ngFor="let degree of data.notes_to_avoid.keys">{{degree}}</ion-col>
       </ion-row>
 
+    <!-- P/S Buttons -->
       <ion-row>
         <ion-button (click)="playFalse()">
           Notes To Avoid

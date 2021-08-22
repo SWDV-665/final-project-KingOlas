@@ -10,6 +10,7 @@ export class Tab3Page {
 
   constructor(public contactPrompt: ContactService) {}
 
+  // Contact Service Placeholder - full Contact Service will come in future updates //
   contactSubmit() {
     console.log('Message Sent')
     this.contactPrompt.contactAlert()

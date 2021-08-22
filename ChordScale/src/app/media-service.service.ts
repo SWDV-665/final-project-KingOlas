@@ -15,6 +15,7 @@ export class MediaServiceService {
 
   file: MediaObject
 
+  // used to get specific file-path according to keyChoice and chordType //
   getTrack(keyChoice: string, chordType: string) {
     console.log('Getting Chord Audio: ' + keyChoice + ' ' + chordType)
     switch (chordType) {

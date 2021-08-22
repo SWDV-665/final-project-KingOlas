@@ -3,9 +3,6 @@ import { ChordServiceService } from '../chord-service.service';
 import { MediaServiceService } from '../media-service.service';
 import { ContactService } from '../contact.service';
 
-
-
-
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -19,6 +16,7 @@ export class Tab1Page {
 
   constructor(public chordService: ChordServiceService, public mediaService: MediaServiceService, public contactService: ContactService) {}
 
+  // main function switch for app - determines which keyDict array to pull from //
   getChord(keyChoice: string, chordType: string) {
     this.mediaService.getTrack(keyChoice, chordType)
     console.log('Getting Chord Data: ' + keyChoice + ' ' + chordType)
@@ -60,6 +58,7 @@ export class Tab1Page {
     console.log('Track Stopped')
   }
 
+  // MP3 Audio Placeholder - more mp3 files will be added in future updates //
   playFalse() {
     this.contactService.mediaAlert();
     console.log('Track Not Created Yet')
