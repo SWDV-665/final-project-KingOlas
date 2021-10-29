@@ -74,6 +74,7 @@
     <ion-item>Standard Scales & Notes</ion-item>
 
     <ion-grid>
+    <!-- Main Scale -->
       <ion-row>
         <ion-col size="4">{{data.chordScale}}:</ion-col>
         <ion-col size="1" *ngFor="let degree of data.scale">{{degree}}</ion-col>
@@ -91,6 +92,7 @@
         </ion-button>
       </ion-row>
 
+    <!-- Guide Tones -->
       <ion-row>
         <ion-col size="8">{{data.chord_guide_tone.name}}:</ion-col>
         <ion-col size="1" *ngFor="let degree of data.chord_guide_tone.keys">{{degree}}</ion-col>
@@ -113,6 +115,7 @@
     <ion-item *ngIf="data.extensions != null">More Interesting Scales & Notes</ion-item>
 
     <ion-grid *ngIf="data.extensions != null">
+    <!-- Extensions -->
       <ion-row>
         <ion-col size="5">Useful Extentions ({{data.extensions.name}}):</ion-col>
         <ion-col size="1" *ngFor="let degree of data.extensions.keys">{{degree}}</ion-col>
@@ -132,6 +135,7 @@
     </ion-grid>
 
     <ion-grid *ngIf="data.extra_extensions != null">
+    <!-- Extra Extensions 1 -->
       <ion-row>
         <ion-col size="4">{{data.extra_extensions[0].name}}:</ion-col>
         <ion-col size="1" *ngFor="let degree of data.extra_extensions[0].keys">{{degree}}</ion-col>
@@ -149,6 +153,7 @@
         </ion-button>
       </ion-row>
 
+    <!-- Extra Extensions 2 -->
       <ion-row *ngIf="data.extra_extensions[1] != null">
         <ion-col size="4">{{data.extra_extensions[1].name}}:</ion-col>
         <ion-col size="1" *ngFor="let degree of data.extra_extensions[1].keys">{{degree}}</ion-col>
@@ -166,6 +171,7 @@
         </ion-button>
       </ion-row>
 
+    <!-- Extra Extensions 3 -->
       <ion-row *ngIf="data.extra_extensions[2] != null">
         <ion-col size="7">Interesting Extention(s) ({{data.extra_extensions[2].name}}):</ion-col>
         <ion-col size="1" *ngFor="let degree of data.extra_extensions[2].keys">{{degree}}</ion-col>
