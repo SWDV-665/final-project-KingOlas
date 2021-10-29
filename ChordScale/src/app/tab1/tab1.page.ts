@@ -18,7 +18,7 @@ export class Tab1Page {
 
   // main function switch for app - determines which keyDict array to pull from //
   getChord(keyChoice: string, chordType: string) {
-    this.mediaService.getTrack(keyChoice, chordType)
+    // this.mediaService.getTrack(keyChoice, chordType, location)
     console.log('Getting Chord Data: ' + keyChoice + ' ' + chordType)
     switch (chordType) {
         case 'maj':
@@ -45,6 +45,8 @@ export class Tab1Page {
           this.data = null;
             break;
     }
+    const location = this.data.scaleFile
+    this.mediaService.getTrack(keyChoice, chordType, location)
     return this.data;
   }
 
