@@ -68,8 +68,8 @@ export class ChordServiceService {
           }
         ],
         notes_to_avoid: {
-            "name": "3",
-            "keys": [this.keyDict[keyChoice]["3"]]
+            "name": `3, 7`,
+            "keys": [this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["7"]]
         }
     }
   }
@@ -142,7 +142,11 @@ export class ChordServiceService {
             "name": `${keyChoice} Diminished Chord/Guide Tones (1, b3, b5, bb7)`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["6"]]
         },
-        extensions: null,
+        extensions: {
+            "name": this.keyDict[keyChoice]["b3"] + ` Whole-Half Diminished Scale`,
+            "keys": [this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["b6"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["7"], this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"]],
+            "path": `./assets/mp3s/` + this.keyDict[keyChoice]["b3"] + ` Fully-Diminished scale.mp3`
+        },
         extra_extensions: null,
         notes_to_avoid: {
             "name": `3, b7`,
