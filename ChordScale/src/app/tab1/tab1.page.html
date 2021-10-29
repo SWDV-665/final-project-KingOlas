@@ -28,13 +28,13 @@
         <ion-label for="keyChoice">Root</ion-label>
         <ion-select [(ngModel)]="keyChoice" id="keyChoice" name="keyChoice" placeholder="Select Chord Root" okText="Select" cancelText="Cancel">
           <ion-select-option name="c" value="C">C</ion-select-option>
-          <ion-select-option name="cSharp" value="C#">C#</ion-select-option>
+          <ion-select-option name="cSharp" value="C Sharp">C#</ion-select-option>
           <ion-select-option name="dFlat" value="Db">Db</ion-select-option>
           <ion-select-option name="d" value="D">D</ion-select-option>
           <ion-select-option name="eFlat" value="Eb">Eb</ion-select-option>
           <ion-select-option name="e" value="E">E</ion-select-option>
           <ion-select-option name="f" value="F">F</ion-select-option>
-          <ion-select-option name="fSharp" value="F#">F#</ion-select-option>
+          <ion-select-option name="fSharp" value="F Sharp">F#</ion-select-option>
           <ion-select-option name="gFlat" value="Gb">Gb</ion-select-option>
           <ion-select-option name="g" value="G">G</ion-select-option>
           <ion-select-option name="aFlat" value="Ab">Ab</ion-select-option>
@@ -143,7 +143,7 @@
 
     <!-- P/S Buttons -->
       <ion-row *ngIf="data.extra_extensions != null">
-        <ion-button (click)="play()">
+        <ion-button (click)="play(data.extra_extensions[0].path)">
           {{data.extra_extensions[0].name}}
           <ion-icon name="play"></ion-icon>
         </ion-button>

@@ -58,7 +58,7 @@ export class MediaServiceService {
 
   stopTrack() {
     console.log('audio stopped')
-    this.file.stop()
+    this.player.stop()
   }
 
 }

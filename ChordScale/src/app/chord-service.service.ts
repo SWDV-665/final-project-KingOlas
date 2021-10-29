@@ -30,11 +30,6 @@ export class ChordServiceService {
         },
         extra_extensions: [
             {
-                "name": `Relative Minor Scale: ` + this.keyDict[keyChoice]['6'] + ` Minor`,
-                "keys": [this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7'], this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5']],
-                "path": `./assets/mp3s/` + this.keyDict[keyChoice]['6'] + ` Minor scale.mp3`
-            },
-            {
                 "name": `${keyChoice} Lydian Scale`,
                 "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['b5'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']]
             },
