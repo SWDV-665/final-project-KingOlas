@@ -50,7 +50,7 @@ export class Tab1Page {
     return this.data;
   }
 
-  play(location) {
+  play(location: string) {
     this.mediaService.playTrack(this.keyChoice, this.chordType, location);
     console.log('Playing ')
   }
@@ -60,7 +60,7 @@ export class Tab1Page {
     console.log(' Stopped')
   }
 
-  // MP3 Audio Placeholder - more mp3 files will be added in future updates //
+  // MP3 Audio Placeholder //
   playFalse() {
     this.contactService.mediaAlert();
     console.log('Track Not Created Yet')
