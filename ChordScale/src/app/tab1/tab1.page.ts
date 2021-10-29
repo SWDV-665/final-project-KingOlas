@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ChordServiceService } from '../chord-service.service';
 import { MediaServiceService } from '../media-service.service';
 import { ContactService } from '../contact.service';
+import { Media } from '@ionic-native/media/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -12,13 +13,13 @@ export class Tab1Page {
 
   keyChoice: string
   chordType: string
+  location: string
   data
 
   constructor(public chordService: ChordServiceService, public mediaService: MediaServiceService, public contactService: ContactService) {}
 
   // main function switch for app - determines which keyDict array to pull from //
   getChord(keyChoice: string, chordType: string) {
-    // this.mediaService.getTrack(keyChoice, chordType, location)
     console.log('Getting Chord Data: ' + keyChoice + ' ' + chordType)
     switch (chordType) {
         case 'maj':
@@ -45,19 +46,18 @@ export class Tab1Page {
           this.data = null;
             break;
     }
-    const location = this.data.scaleFile
-    this.mediaService.getTrack(keyChoice, chordType, location)
+    // this.mediaService.getTrack(keyChoice, chordType, location)
     return this.data;
   }
 
-  play() {
-    this.mediaService.playTrack();
-    console.log('Playing Track')
+  play(location) {
+    this.mediaService.playTrack(this.keyChoice, this.chordType, location);
+    console.log('Playing ')
   }
 
   stop() {
     this.mediaService.stopTrack();
-    console.log('Track Stopped')
+    console.log(' Stopped')
   }
 
   // MP3 Audio Placeholder - more mp3 files will be added in future updates //

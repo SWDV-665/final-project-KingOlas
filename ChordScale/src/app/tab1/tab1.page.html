@@ -82,7 +82,7 @@
 
     <!-- Play / Stop Buttons -->
       <ion-row>
-        <ion-button (click)="play()">
+        <ion-button (click)="play(data.scaleFile)">
           {{data.chordScale}}
           <ion-icon name="play"></ion-icon>
         </ion-button>
@@ -143,7 +143,7 @@
 
     <!-- P/S Buttons -->
       <ion-row *ngIf="data.extra_extensions != null">
-        <ion-button (click)="playFalse()">
+        <ion-button (click)="play()">
           {{data.extra_extensions[0].name}}
           <ion-icon name="play"></ion-icon>
         </ion-button>

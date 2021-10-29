@@ -30,14 +30,15 @@ export class ChordServiceService {
         },
         extra_extensions: [
             {
+                "name": `Relative Minor Scale: ` + this.keyDict[keyChoice]['6'] + ` Minor`,
+                "keys": [this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7'], this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5']],
+                "path": `./assets/mp3s/` + this.keyDict[keyChoice]['6'] + ` Minor scale.mp3`
+            },
+            {
                 "name": `${keyChoice} Lydian Scale`,
                 "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['b5'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']]
             },
             {
-                "name": `Relative Minor Scale`,
-                "keys": [this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7'], this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5']]
-            },
-           {
                 "name": `#11`,
                 "keys": [this.keyDict[keyChoice]["b5"]]
             }
@@ -66,8 +67,9 @@ export class ChordServiceService {
         },
         extra_extensions: [
             {
-            "name": `Relative Major Scale`,
-            "keys": [this.keyDict[keyChoice]['b3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['b6'], this.keyDict[keyChoice]['b7'], this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2']]
+            "name": `Relative Major Scale: ` + this.keyDict[keyChoice]['b3'] + ` Major`,
+            "keys": [this.keyDict[keyChoice]['b3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['b6'], this.keyDict[keyChoice]['b7'], this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2']],
+            "path": `./assets/mp3s/` + this.keyDict[keyChoice]['b3'] + ` Major scale.mp3`
           }
         ],
         notes_to_avoid: {
@@ -94,12 +96,13 @@ export class ChordServiceService {
         },
         extra_extensions: [
             {
-                "name": `${keyChoice} Lydian Dominant Scale`,
-                "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]]
+                "name": `${keyChoice} Half-Whole Diminished Scale`,
+                "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
+                "path": `./assets/mp3s/${keyChoice} Half-Diminished scale.mp3`
             },
             {
-                "name": `${keyChoice} Half-Whole Diminished Scale`,
-                "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]]
+                "name": `${keyChoice} Lydian Dominant Scale`,
+                "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]]
             },
             {
                 "name": `b9, #9, 11, #11, #5/b13`,
