@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as jsonData from './keyDict.json';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +12,16 @@ export class ChordServiceService {
   constructor() { 
     console.log('ChordService Running...')
     this.keyDict = jsonData['default']
+
+    // const { MongoClient } = require('mongodb');
+    // const uri = "mongodb+srv://admin:cpOLSOd6dOnhA1tS@capstonecluster.sgbgy.mongodb.net/ChordScale.keyDict?retryWrites=true&w=majority";
+    // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    // client.connect(err => {
+    //   const collection = client.db("test").collection("devices");
+    //   // perform actions on the collection object
+    //   client.close();
+    // });
+
   }
 
   majorChord(keyChoice: string) {

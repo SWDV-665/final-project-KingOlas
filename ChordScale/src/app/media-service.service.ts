@@ -10,6 +10,16 @@ export class MediaServiceService {
 
   constructor(private media:Media) {
     console.log('Media Service Running')
+
+    // const { MongoClient } = require('mongodb');
+    // const uri = "mongodb+srv://admin:cpOLSOd6dOnhA1tS@capstonecluster.sgbgy.mongodb.net/ChordScale.mp3s?retryWrites=true&w=majority";
+    // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    // client.connect(err => {
+    //   const collection = client.db("test").collection("devices");
+    //   // perform actions on the collection object
+    //   client.close();
+    // });
+
   }
    
   keyChoice: string
