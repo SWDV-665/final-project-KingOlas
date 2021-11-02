@@ -13,18 +13,18 @@ export class ChordServiceService {
     console.log('ChordService Running...')
     this.keyDict = jsonData['default']
 
-    MongoConnect();
+    // MongoConnect();
 
-      function MongoConnect() {
-          const { MongoClient } = require('mongodb');
-          const uri = "mongodb+srv://admin:cpOLSOd6dOnhA1tS@capstonecluster.sgbgy.mongodb.net/ChordScale?retryWrites=true&w=majority";
-          const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-          client.connect(err => {
-              const collection = client.db("ChordScale").collection("keyDict");
-              // perform actions on the collection object
-              client.close();
-          });
-      }
+    //   function MongoConnect() {
+    //       const { MongoClient } = require('mongodb');
+    //       const uri = "mongodb+srv://admin:cpOLSOd6dOnhA1tS@capstonecluster.sgbgy.mongodb.net/ChordScale?retryWrites=true&w=majority";
+    //       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    //       client.connect(err => {
+    //           const collection = client.db("ChordScale").collection("keyDict");
+    //           // perform actions on the collection object
+    //           client.close();
+    //       });
+    //   }
   }
 
   majorChord(keyChoice: string) {
@@ -45,7 +45,8 @@ export class ChordServiceService {
         extra_extensions: [
             {
                 "name": `${keyChoice} Lydian Scale`,
-                "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['b5'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']]
+                "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['b5'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']],
+                "path": `./assets/mp3s/${keyChoice} Lydian scale.mp3`
             },
             {
                 "name": `#11`,
