@@ -41,7 +41,7 @@ export class MediaServiceService {
   chordType: string
   location: string
 
-  file: MediaObject
+  //file: MediaObject
   player: Howl
 
   getTrack(keyChoice: string, chordType: string, location: string) {
