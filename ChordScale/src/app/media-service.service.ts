@@ -42,17 +42,25 @@ export class MediaServiceService {
   file: MediaObject
   player: Howl
 
-  playTrack(keyChoice: string, chordType: string, location: string) {
+  getTrack(keyChoice: string, chordType: string, location: string) {
     console.log('Getting Chord Audio: ' + keyChoice + ' ' + chordType)
     this.player = new Howl ({
       src: [location]
     })
-    this.player.play()
+    const filename = location.split('\\').pop().split('/').pop()
+    console.log(' Successfully Loaded ' + filename)
   }
 
-  stopTrack() {
-    console.log('Stopping Chord Audio')
+  playTrack(location: string) {
+    this.player.play()
+    const filename = location.split('\\').pop().split('/').pop()
+    console.log('Playing ' + filename)
+  }
+
+  stopTrack(location: string) {
     this.player.stop()
+    const filename = location.split('\\').pop().split('/').pop()
+    console.log('Stopping ' + filename)
   }
 
 }

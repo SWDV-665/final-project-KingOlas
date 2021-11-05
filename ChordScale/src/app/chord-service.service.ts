@@ -35,7 +35,7 @@ export class ChordServiceService {
         scale: [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']],
         scaleFile: `./assets/mp3s/${keyChoice} Major scale.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Major Chord/Guide Tones (1, 3, 5, 7)`,
+            "name": `${keyChoice} Major Chord/Guide Tones`,
             "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['7']]
         },
         extensions: {
@@ -68,7 +68,7 @@ export class ChordServiceService {
         scale: [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
         scaleFile: `./assets/mp3s/${keyChoice} Minor scale.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Minor Chord/Guide Tones (1, b3, 5, b7)`,
+            "name": `${keyChoice} Minor Chord/Guide Tones`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["b7"]]
         },
         extensions: {
@@ -97,7 +97,7 @@ export class ChordServiceService {
         scale: [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
         scaleFile: `./assets/mp3s/${keyChoice} Mixolydian scale.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Dominant Chord/Guide Tones (1, 3, 5, b7)`,
+            "name": `${keyChoice} Dominant Chord/Guide Tones`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["b7"]]
         },
         extensions: {
@@ -134,7 +134,7 @@ export class ChordServiceService {
         scale: [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
         scaleFile: `./assets/mp3s/${keyChoice} Half-Diminished scale.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Diminished Chord/Guide Tones (1, b3, b5, b7)`,
+            "name": `${keyChoice} Diminished Chord/Guide Tones`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["b7"]]
         },
         extensions: null,
@@ -154,7 +154,7 @@ export class ChordServiceService {
         scale: [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["b6"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["7"]],
         scaleFile: `./assets/mp3s/${keyChoice} Fully-Diminished scale.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Diminished Chord/Guide Tones (1, b3, b5, bb7)`,
+            "name": `${keyChoice} Diminished Chord/Guide Tones`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["6"]]
         },
         extensions: {

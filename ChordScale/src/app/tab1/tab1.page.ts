@@ -51,13 +51,16 @@ export class Tab1Page {
   }
 
   play(location: string) {
-    this.mediaService.playTrack(this.keyChoice, this.chordType, location);
-    console.log('Playing ')
+    this.mediaService.getTrack(this.keyChoice, this.chordType, location)
+    this.mediaService.playTrack(location);
+    const filename = location.split('\\').pop().split('/').pop()
+    console.log('Playing ' + filename)
   }
 
-  stop() {
-    this.mediaService.stopTrack();
-    console.log(' Stopped')
+  stop(location: string) {
+    this.mediaService.stopTrack(location);
+    const filename = location.split('\\').pop().split('/').pop()
+    console.log(filename + ' Stopped')
   }
 
   // MP3 Audio Placeholder //
