@@ -46,21 +46,19 @@ export class Tab1Page {
           this.data = null;
             break;
     }
-    // this.mediaService.getTrack(keyChoice, chordType, location)
     return this.data;
   }
 
   play(location: string) {
     this.mediaService.getTrack(this.keyChoice, this.chordType, location)
-    this.mediaService.playTrack(location);
     const filename = location.split('\\').pop().split('/').pop()
-    console.log('Playing ' + filename)
+    this.mediaService.playTrack();
+    console.log('Playing ' + filename);
   }
 
-  stop(location: string) {
-    this.mediaService.stopTrack(location);
-    const filename = location.split('\\').pop().split('/').pop()
-    console.log(filename + ' Stopped')
+  stop() {
+    this.mediaService.stopTrack();
+    console.log('Stopped');
   }
 
   // MP3 Audio Placeholder //

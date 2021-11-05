@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
-import { Howl } from 'howler';
+import { Howl, Howler } from 'howler';
 
 
 @Injectable({
@@ -10,6 +10,8 @@ export class MediaServiceService {
 
   constructor(private media:Media) {
     console.log('Media Service Running')
+
+    Howler.volume(0.45);
 
     // MongoConnect();
 
@@ -51,16 +53,12 @@ export class MediaServiceService {
     console.log(' Successfully Loaded ' + filename)
   }
 
-  playTrack(location: string) {
+  playTrack() {
     this.player.play()
-    const filename = location.split('\\').pop().split('/').pop()
-    console.log('Playing ' + filename)
   }
 
-  stopTrack(location: string) {
+  stopTrack() {
     this.player.stop()
-    const filename = location.split('\\').pop().split('/').pop()
-    console.log('Stopping ' + filename)
   }
 
 }
