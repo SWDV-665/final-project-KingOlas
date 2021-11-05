@@ -76,10 +76,8 @@
     <ion-grid>
     <!-- Main Scale -->
       <ion-row>
-        <ion-col>{{data.chordScale}}:</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col *ngFor="let degree of data.scale">{{degree}}</ion-col>
+        <ion-col size="4">{{data.chordScale}}:</ion-col>
+        <ion-col size="1" *ngFor="let degree of data.scale">{{degree}}</ion-col>
       </ion-row>
 
     <!-- Play / Stop Buttons -->
