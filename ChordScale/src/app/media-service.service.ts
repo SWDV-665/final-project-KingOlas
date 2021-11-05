@@ -45,12 +45,12 @@ export class MediaServiceService {
   player: Howl
 
   getTrack(keyChoice: string, chordType: string, location: string) {
-    console.log('Getting Chord Audio: ' + keyChoice + ' ' + chordType)
+    console.log(`Getting Chord Audio: ${keyChoice} ${chordType}`)
     this.player = new Howl ({
       src: [location]
     })
     const filename = location.split('\\').pop().split('/').pop()
-    console.log(' Successfully Loaded ' + filename)
+    console.log(` Successfully Loaded ${filename}`)
   }
 
   playTrack() {

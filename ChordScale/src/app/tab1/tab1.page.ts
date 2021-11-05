@@ -53,12 +53,12 @@ export class Tab1Page {
     this.mediaService.getTrack(this.keyChoice, this.chordType, location)
     const filename = location.split('\\').pop().split('/').pop()
     this.mediaService.playTrack();
-    console.log('Playing ' + filename);
+    console.log(`Playing ${filename}`);
   }
 
   stop() {
     this.mediaService.stopTrack();
-    console.log('Stopped');
+    console.log('Audio Stopped');
   }
 
   // MP3 Audio Placeholder //
