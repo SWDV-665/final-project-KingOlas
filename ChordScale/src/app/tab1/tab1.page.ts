@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ChordServiceService } from '../chord-service.service';
 import { MediaServiceService } from '../media-service.service';
 import { ContactService } from '../contact.service';
-import { Media } from '@ionic-native/media/ngx';
+//import { Media } from '@ionic-native/media/ngx';
 
 @Component({
   selector: 'app-tab1',
