@@ -1,14 +1,16 @@
 # final-project-KingOlas
 final-project-KingOlas created by GitHub Classroom
 
-This is the ChordScale App; an application designed to help anyone understand how music works and how to play with anyone!
+This is the ChordScale App; an application designed to help anyone and everyone understand how music works and, more importantly, how to become fluent on your instrument!
 
-As of August 22, 2021:
-  - Main Functions and Theming Finished: getChord() produces and displays correct data, as well as getTrack()
-  - Future Goals: finish populating mp3 tracks and build up getTrack() to include more mp3 file-paths
-
-How To Run:
-  - To use ChordScale, download ChordScale folder and run "ionic capacitor build ios"
-  - Using an Apple Device connected to XCode, you will be able to use the app and playback audio using the Native Media API from Cordova
+As of Nov 6, 2021:
+  - Main Functions operating as intended
+  - Theme Colors in place
+  - Howler.js Media Service operating
+  - ChordScale Algorithm properly processes keyDict Chord Data
+  - Future Goals: 
+      - Finish populating mp3 tracks
+      - Refine/Clean-Up UI
+      - Toggle Audio Buttons / Work out Stop Button Bug
 
 ~ Olas Ortwein, stuID: 0972961
