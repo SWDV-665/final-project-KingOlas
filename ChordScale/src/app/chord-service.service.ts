@@ -43,41 +43,43 @@ export class ChordServiceService {
         extensions: [
             {
                 "name": `9`,
-                "key": this.keyDict[keyChoice]['2'],
+                "keys": this.keyDict[keyChoice]['2'],
                 "path": `./assets/mp3s/${keyChoice} 9.mp3`
             },
             {
                 "name": `13`,
-                "key": this.keyDict[keyChoice]['6'],
+                "keys": this.keyDict[keyChoice]['6'],
                 "path": `./assets/mp3s/${keyChoice} 13.mp3`
 
             },
             {
                 "name": `#11`,
-                "keys": [this.keyDict[keyChoice]["b5"]],
+                "keys": this.keyDict[keyChoice]["b5"],
                 "path": `./assets/mp3s/${keyChoice} Sharp_11.mp3`
             }
         ],
-        extra_extensions: {
+        extra_extensions: [
+            {
                 "name": `${keyChoice} Lydian Scale`,
                 "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['b5'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']],
                 "path": `./assets/mp3s/${keyChoice} Lydian scale.mp3`
-        },
+            }
+        ],
         notes_to_avoid: [
             {
                 "name": `b3`,
                 "key": this.keyDict[keyChoice]["b3"],
-                "path": `./assets/mp3s/${keyChoice} b3.mp3`
+                "path": `./assets/mp3s/${keyChoice} Flat_3.mp3`
             },
             {
                 "name": `4`,
-                "key": this.keyDict[keyChoice]["4"],
+                "keys": this.keyDict[keyChoice]["4"],
                 "path": `./assets/mp3s/${keyChoice} 4.mp3`
             },
             {
                 "name": `b7`,
-                "key": this.keyDict[keyChoice]["b7"],
-                "path": `./assets/mp3s/${keyChoice} b7.mp3`
+                "keys": this.keyDict[keyChoice]["b7"],
+                "path": `./assets/mp3s/${keyChoice} Flat_7.mp3`
             }
         ]
     }
@@ -96,20 +98,44 @@ export class ChordServiceService {
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["b7"]],
             "path": `./assets/mp3s/${keyChoice} Minor chord tones.mp3`
         },
-        extensions: {
-            "name": "9, 11, 13",
-            "keys": [this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]['6']]
-        },
-        extra_extensions: {
-            // Relative Lydian Scale, based on the flat 3rd of the Minor Scale
-            "name": this.majorChord(this.keyDict[keyChoice]['b3']).extra_extensions[0].name,
-            "keys": this.majorChord(this.keyDict[keyChoice]['b3']).extra_extensions[0].keys,
-            "path": this.majorChord(this.keyDict[keyChoice]['b3']).extra_extensions[0].path
-        },
-        notes_to_avoid: {
-            "name": `3, 7`,
-            "keys": [this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["7"]]
-        }
+        extensions: [
+            {
+                "name": `9`,
+                "keys": this.keyDict[keyChoice]['2'],
+                "path": `./assets/mp3s/${keyChoice} 9.mp3`
+            },
+            {
+                "name": `11`,
+                "keys": this.keyDict[keyChoice]['4'],
+                "path": `./assets/mp3s/${keyChoice} 11.mp3`
+
+            },
+            {
+                "name": `13`,
+                "keys": this.keyDict[keyChoice]["6"],
+                "path": `./assets/mp3s/${keyChoice} 13.mp3`
+            }
+        ],
+        extra_extensions: [
+            {
+                // Relative Lydian Scale, based on the flat 3rd of the Minor Scale
+                "name": this.majorChord(this.keyDict[keyChoice]['b3']).extra_extensions[0].name,
+                "keys": this.majorChord(this.keyDict[keyChoice]['b3']).extra_extensions[0].keys,
+                "path": this.majorChord(this.keyDict[keyChoice]['b3']).extra_extensions[0].path
+            }
+        ],
+        notes_to_avoid: [
+            {
+                "name": `3`,
+                "keys": this.keyDict[keyChoice]["3"],
+                "path": `./assets/mp3s/${keyChoice} 3.mp3`
+            },
+            {
+                "name": `7`,
+                "keys": this.keyDict[keyChoice]["7"],
+                "path": `./assets/mp3s/${keyChoice} 7.mp3`
+            }
+        ]
     }
   }
 
@@ -127,13 +153,42 @@ export class ChordServiceService {
         },
         extensions: [
             {
-                "name": `9, 13`,
-                "keys": [this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['6']]
+                "name": `9`,
+                "keys": this.keyDict[keyChoice]['2'],
+                "path": `./assets/mp3s/${keyChoice} 9.mp3`
             },
             {
-                "name": `b9, #9, 11, #11, #5/b13`,
-                "keys": [this.keyDict[keyChoice]["b2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["b6"]]
+                "name": `13`,
+                "keys": this.keyDict[keyChoice]['6'],
+                "path": `./assets/mp3s/${keyChoice} 13.mp3`
+            },
+            {
+                "name": `b9`,
+                "keys": this.keyDict[keyChoice]["b2"],
+                "path": `./assets/mp3s/${keyChoice} Flat_9.mp3`
+
+            },
+            {
+                "name": `#9`,
+                "keys": this.keyDict[keyChoice]["b3"],
+                "path": `./assets/mp3s/${keyChoice} Sharp_9.mp3`
+            },
+            {
+                "name": `11`,
+                "keys": this.keyDict[keyChoice]["4"],
+                "path": `./assets/mp3s/${keyChoice} 11.mp3`
+            },
+            {
+                "name": `#11`,
+                "keys": this.keyDict[keyChoice]["b5"],
+                "path": `./assets/mp3s/${keyChoice} Sharp_11.mp3`
+            },
+            {
+                "name": `b13`,
+                "keys": this.keyDict[keyChoice]["b6"],
+                "path": `./assets/mp3s/${keyChoice} Flat_13.mp3`
             }
+            
         ],
         extra_extensions: [
             {
@@ -143,13 +198,17 @@ export class ChordServiceService {
             },
             {
                 "name": `${keyChoice} Lydian Dominant Scale`,
-                "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]]
+                "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
+                "path": `./assets/mp3s/${keyChoice} Lydian Dominant scale.mp3`
             }
         ],
-        notes_to_avoid: {
+        notes_to_avoid: [
+            {
             "name": `7`,
-            "keys": [this.keyDict[keyChoice]["7"]]
-        }
+            "keys": this.keyDict[keyChoice]["7"],
+            "path": `./assets/mp3s/${keyChoice} 7.mp3`
+            }
+        ]
     }
   }
 
@@ -167,10 +226,19 @@ export class ChordServiceService {
         },
         extensions: null,
         extra_extensions: null,
-        notes_to_avoid: {
-            "name": `3, 7`,
-            "keys": [this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["7"]]
-        }
+        notes_to_avoid: [
+            {
+                "name": `3`,
+                "keys": this.keyDict[keyChoice]["3"],
+                "path": `./assets/mp3s/${keyChoice} 3.mp3`
+            },
+            {
+                "name": `7`,
+                "keys": this.keyDict[keyChoice]["7"],
+                "path": `./assets/mp3s/${keyChoice} 7.mp3`
+
+            }
+        ]
     }
   }
 
@@ -186,18 +254,29 @@ export class ChordServiceService {
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["6"]]
         },
         extensions: null,
-        extra_extensions: {
+        extra_extensions: [
+            {
             // Fully Diminished chords are entirely even in that the intervals between chord tones are exactly the same
             // and can be looped forever...
             // DO NOT USE RECURSIVE METHOD CALL HERE
             "name": this.keyDict[keyChoice]["b3"] + ` Whole-Half Diminished Scale`,
             "keys": [this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["b6"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["7"], this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"]],
             "path": `./assets/mp3s/` + this.keyDict[keyChoice]["b3"] + ` Fully-Diminished scale.mp3`
-        },
-        notes_to_avoid: {
-            "name": `3, b7`,
-            "keys": [this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b7"]]
-        }
+            }
+        ],
+        notes_to_avoid: [
+            {
+                "name": `3`,
+                "keys": this.keyDict[keyChoice]["3"],
+                "path": `./assets/mp3s/${keyChoice} 3.mp3`
+            },
+            {
+                "name": `b7`,
+                "keys": this.keyDict[keyChoice]["b7"],
+                "path": `./assets/mp3s/${keyChoice} Flat_7.mp3`
+
+            }
+        ]
     }
   }
 

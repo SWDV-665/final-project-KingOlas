@@ -58,11 +58,13 @@
   </ion-card>
 
   <!-- No Data Display -->
-  <ion-card *ngIf="data == null">
-    <h3 class="ion-text-center">
-      <em>No Chord Selected</em>
-    </h3>
-  </ion-card>
+  <div *ngIf="data == null">
+    <ion-card class="ion-padding">
+      <ion-card-title class="ion-text-center">
+        <em>No Chord Selected</em>
+      </ion-card-title>
+    </ion-card>
+  </div>
 
   <!-- Chord Data Display  -->
   <div *ngIf="data != null">
@@ -70,7 +72,7 @@
       <ion-card-title class="ion-text-center">Most Useful Notes for {{data.name}}:</ion-card-title>
       <!-- Standard Scales & Notes: All Types -->
       <ion-grid>
-          <!-- Play / Stop Buttons -->
+        <!-- Main Scale Play / Stop Buttons -->
         <ion-row class="ion-padding-top">
           <ion-button (click)="play(data.scaleFile)">
             {{data.chordScale}}
@@ -78,139 +80,109 @@
           </ion-button>
       
           <ion-button (click)="stop()">
-            <ion-icon name="square"></ion-icon>
+            <ion-icon slot="icon-only" name="square"></ion-icon>
           </ion-button>
         </ion-row>
 
         <!-- Main Scale Degrees -->
         <ion-row class="ion-justify-content-start">
-          <ion-col size="1.5" *ngFor="let degree of data.scale">
+          <ion-col size="1.75">Notes:</ion-col>
+          <ion-col size="1.25" *ngFor="let degree of data.scale">
             {{degree}}
           </ion-col>
         </ion-row>
 
-          <!-- P/S Buttons -->
+        <!-- Guide Tone P/S Buttons -->
         <ion-row class="ion-padding-top">
-          <ion-button (click)="playFalse()">
+          <ion-button (click)="play(data.chord_guide_tone.path)">
             {{data.chord_guide_tone.name}}
             <ion-icon name="play"></ion-icon>
           </ion-button>
       
           <ion-button (click)="stop()">
-            <ion-icon name="square"></ion-icon>
+            <ion-icon slot="icon-only" name="square"></ion-icon>
           </ion-button>
         </ion-row>
 
         <!-- Guide Tones -->
         <ion-row class="ion-justify-content-start">
-          <ion-col size="1.5" *ngFor="let degree of data.chord_guide_tone.keys">
+          <ion-col size="1.75">Notes:</ion-col>
+          <ion-col size="1.25" *ngFor="let degree of data.chord_guide_tone.keys">
             {{degree}}
           </ion-col>
         </ion-row>
+
+        <!-- Chord P/S Buttons -->
+        <ion-row class="ion-padding-top">
+          <ion-button (click)="play(data.chordFile)">
+            {{data.name}} Chord
+            <ion-icon name="play"></ion-icon>
+          </ion-button>
+      
+          <ion-button (click)="stop()">
+            <ion-icon slot="icon-only" name="square"></ion-icon>
+          </ion-button>
+        </ion-row>
       </ion-grid>
     </ion-card>
 
+    <!-- Chord Extensions -->
+    <ion-card *ngIf="data.extensions != null" class="ion-padding">
+      <ion-card-title class="ion-text-center">{{data.name}} Chord Extensions:</ion-card-title>
+
+      <!-- Extension Buttons ( No Stop Buttons )-->
+      <ion-row class="ion-padding top">
+        <ion-col *ngFor=" let i of data.extensions">
+          <ion-button (click)="play(i.path)">
+            {{i.name}}: {{i.keys}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <!-- Other Scales -->
+    <ion-card *ngIf="data.extra_extensions != null" class="ion-padding">
+      <ion-card-title class="ion-text-center">Other Interesting Scales:</ion-card-title>
+
+      <div *ngFor="let i of data.extra_extensions">
+        <!-- Other Scale P/S Buttons -->
+        <ion-row class="ion-padding-top">
+          <ion-button (click)="play(i.path)">
+            {{i.name}}
+            <ion-icon name="play"></ion-icon>
+          </ion-button>
+      
+          <ion-button (click)="stop()">
+            <ion-icon slot="icon-only" name="square"></ion-icon>
+          </ion-button>
+        </ion-row>
+      
+
+        <!-- Scale Degrees -->
+        <ion-row class="ion-justify-content-start">
+          <ion-col size="1.75">Notes:</ion-col>
+          <ion-col size="1.25" *ngFor="let degree of i.keys">
+            {{degree}}
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+
+    <!-- Notes to Avoid (N2A) -->
     <ion-card class="ion-padding">
-      <!-- Extra Scales & Notes -->
-      <ion-card-title class="ion-text-center" *ngIf="data.extensions != null">Other Interesting Scales & Notes</ion-card-title>
+      <ion-card-title class="ion-text-center">Notes to Avoid:</ion-card-title>
 
-      <ion-grid *ngIf="data.extensions != null">
-        <!-- Extensions -->
-        <ion-row>
-          <ion-col size="5">Useful Extentions ({{data.extensions.name}}):</ion-col>
-          <ion-col size="1" *ngFor="let degree of data.extensions.keys">{{degree}}</ion-col>
-        </ion-row>
-
-          <!-- P/S Buttons -->
-        <ion-row>
-          <ion-button (click)="play(data.extensions.path)">
-            {{data.extensions.name}}
-            <ion-icon name="play"></ion-icon>
+      <!-- N2A Buttons ( No Stop Buttons )-->
+      <ion-row class="ion-padding top">
+        <ion-col *ngFor=" let i of data.notes_to_avoid">
+          <ion-button (click)="play(i.path)">
+            {{i.name}}: {{i.keys}}
           </ion-button>
-      
-          <ion-button (click)="stop()">
-            <ion-icon name="square"></ion-icon>
-          </ion-button>
-        </ion-row>
-      </ion-grid>
-
-      <ion-grid *ngIf="data.extra_extensions != null">
-        <!-- Extra Extensions 1 -->
-        <ion-row>
-          <ion-col size="4">{{data.extra_extensions[0].name}}:</ion-col>
-          <ion-col size="1" *ngFor="let degree of data.extra_extensions[0].keys">{{degree}}</ion-col>
-        </ion-row>
-
-          <!-- P/S Buttons -->
-        <ion-row *ngIf="data.extra_extensions != null">
-          <ion-button (click)="play(data.extra_extensions[0].path)">
-            {{data.extra_extensions[0].name}}
-            <ion-icon name="play"></ion-icon>
-          </ion-button>
-      
-          <ion-button (click)="stop()">
-            <ion-icon name="square"></ion-icon>
-          </ion-button>
-        </ion-row>
-
-        <!-- Extra Extensions 2 -->
-        <ion-row *ngIf="data.extra_extensions[1] != null">
-          <ion-col size="4">{{data.extra_extensions[1].name}}:</ion-col>
-          <ion-col size="1" *ngFor="let degree of data.extra_extensions[1].keys">{{degree}}</ion-col>
-        </ion-row>
-
-          <!-- P/S Buttons -->
-        <ion-row *ngIf="data.extra_extensions[1] != null">
-          <ion-button (click)="play(data.extra_extensions[1].path)">
-            {{data.extra_extensions[1].name}}
-            <ion-icon name="play"></ion-icon>
-          </ion-button>
-      
-          <ion-button (click)="stop()">
-            <ion-icon name="square"></ion-icon>
-          </ion-button>
-        </ion-row>
-
-        <!-- Extra Extensions 3 -->
-        <ion-row *ngIf="data.extra_extensions[2] != null">
-          <ion-col size="7">Interesting Extention(s) ({{data.extra_extensions[2].name}}):</ion-col>
-          <ion-col size="1" *ngFor="let degree of data.extra_extensions[2].keys">{{degree}}</ion-col>
-        </ion-row>
-
-          <!-- P/S Buttons -->
-        <ion-row *ngIf="data.extra_extensions[2] != null">
-          <ion-button (click)="play(data.extra_extensions[2].path)">
-            {{data.extra_extensions[2].name}}
-            <ion-icon name="play"></ion-icon>
-          </ion-button>
-      
-          <ion-button (click)="stop()">
-            <ion-icon name="square"></ion-icon>
-          </ion-button>
-        </ion-row>
-      </ion-grid>
-
-      <!-- Notes to AVOID: All Types -->
-      <ion-item>Notes to Avoid</ion-item>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col size="1" *ngFor="let degree of data.notes_to_avoid.keys">{{degree}}</ion-col>
-        </ion-row>
-
-        <!-- P/S Buttons -->
-        <ion-row>
-          <ion-button (click)="playFalse()">
-            Notes To Avoid
-            <ion-icon name="play"></ion-icon>
-          </ion-button>
-      
-          <ion-button (click)="stop()">
-            <ion-icon name="square"></ion-icon>
-          </ion-button>
-        </ion-row>
-      </ion-grid>
+        </ion-col>
+      </ion-row>
     </ion-card>
+
+
   </div>
 
 </ion-content>
