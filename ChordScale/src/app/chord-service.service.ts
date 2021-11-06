@@ -30,13 +30,16 @@ export class ChordServiceService {
   majorChord(keyChoice: string) {
     console.log(keyChoice + ' Major Chord Data Returned')
     return {
-        name: `${keyChoice} maj7`,
-        chordScale: `${keyChoice} Major Scale`,
+        //The SHARP Problem: a bug I've encountered in Howler separates the location of mp3 files by the # sign - a strangely inauspicious crossover between music and programming...
+        //Instead of using more code and processing power/time to properly parse the strings to connect to the appropriate audio file, I've added more data to the JSON
+        //keyDict Dictionary - ('Root') - in order to avoid the Sharp/(#) bug in Howler, while processing the correct (and more visually appealing) note/scale data.
+        name: `${this.keyDict[keyChoice]['Root']} maj7`,
+        chordScale: `${this.keyDict[keyChoice]['Root']} Major Scale`,
         scale: [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['4'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']],
         scaleFile: `./assets/mp3s/${keyChoice} Major scale.mp3`,
         chordFile: `./assets/mp3s/${keyChoice} Major chord.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Major Chord Tones`,
+            "name": `${this.keyDict[keyChoice]['Root']} Major Chord Tones`,
             "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['7']],
             "path": `./assets/mp3s/${keyChoice} Major chord tones.mp3`
         },
@@ -60,7 +63,7 @@ export class ChordServiceService {
         ],
         extra_extensions: [
             {
-                "name": `${keyChoice} Lydian Scale`,
+                "name": `${this.keyDict[keyChoice]['Root']} Lydian Scale`,
                 "keys": [this.keyDict[keyChoice]['1'], this.keyDict[keyChoice]['2'], this.keyDict[keyChoice]['3'], this.keyDict[keyChoice]['b5'], this.keyDict[keyChoice]['5'], this.keyDict[keyChoice]['6'], this.keyDict[keyChoice]['7']],
                 "path": `./assets/mp3s/${keyChoice} Lydian scale.mp3`
             }
@@ -88,13 +91,13 @@ export class ChordServiceService {
   minorChord(keyChoice: string) {
     console.log(keyChoice + ' Minor Chord Data Returned')
     return {
-        name: `${keyChoice} min7`,
-        chordScale: `${keyChoice} (Dorian) Minor Scale`,
+        name: `${this.keyDict[keyChoice]['Root']} min7`,
+        chordScale: `${this.keyDict[keyChoice]['Root']} (Dorian) Minor Scale`,
         scale: [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
         scaleFile: `./assets/mp3s/${keyChoice} Minor scale.mp3`,
         chordFile: `./assets/mp3s/${keyChoice} Minor chord.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Minor Chord Tones`,
+            "name": `${this.keyDict[keyChoice]['Root']} Minor Chord Tones`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["b7"]],
             "path": `./assets/mp3s/${keyChoice} Minor chord tones.mp3`
         },
@@ -142,13 +145,13 @@ export class ChordServiceService {
   domChord(keyChoice: string) {
     console.log(keyChoice + ' Dominant Chord Data Returned')
     return {
-        name: `${keyChoice} 7`,
-        chordScale: `${keyChoice} Mixolydian Scale`,
+        name: `${this.keyDict[keyChoice]['Root']} 7`,
+        chordScale: `${this.keyDict[keyChoice]['Root']} Mixolydian Scale`,
         scale: [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
         scaleFile: `./assets/mp3s/${keyChoice} Mixolydian scale.mp3`,
         chordFile: `./assets/mp3s/${keyChoice} Dominant chord.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} 7 Chord Tones`,
+            "name": `${this.keyDict[keyChoice]['Root']} 7 Chord Tones`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["b7"]],
             "path": `./assets/mp3s/${keyChoice} Dominant chord tones.mp3`
         },
@@ -193,12 +196,12 @@ export class ChordServiceService {
         ],
         extra_extensions: [
             {
-                "name": `${keyChoice} Half-Whole Dinimished Scale`,
+                "name": `${this.keyDict[keyChoice]['Root']} Half-Whole Dinimished Scale`,
                 "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
                 "path": `./assets/mp3s/${keyChoice} Half-Diminished scale.mp3`
             },
             {
-                "name": `${keyChoice} Lydian Dominant Scale`,
+                "name": `${this.keyDict[keyChoice]['Root']} Lydian Dominant Scale`,
                 "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
                 "path": `./assets/mp3s/${keyChoice} Lydian Dominant scale.mp3`
             }
@@ -216,13 +219,13 @@ export class ChordServiceService {
   halfDimChord(keyChoice: string) {
     console.log(keyChoice + ' Half-Diminished Chord Data Returned')
     return {
-        name: `${keyChoice} min7b5`,
-        chordScale: `${keyChoice} Half-Whole Dimimished Scale`,
+        name: `${this.keyDict[keyChoice]['Root']} min7b5`,
+        chordScale: `${this.keyDict[keyChoice]['Root']} Half-Whole Dimimished Scale`,
         scale: [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["5"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["b7"]],
         scaleFile: `./assets/mp3s/${keyChoice} Half-Diminished scale.mp3`,
         chordFile: `./assets/mp3s/${keyChoice} Half-Diminished chord.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Half-Diminished Chord Tones`,
+            "name": `${this.keyDict[keyChoice]['Root']} Half-Diminished Chord Tones`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["b7"]],
             "path": `./assets/mp3s/${keyChoice} Half-Diminished chord tones.mp3`
         },
@@ -247,13 +250,13 @@ export class ChordServiceService {
   fullDimChord(keyChoice: string) {
     console.log(keyChoice + ' Fully-Diminished Chord Data Returned')
     return {
-        name: `${keyChoice} dim7`,
-        chordScale: `${keyChoice} Whole-Half Dimimished Scale`,
+        name: `${this.keyDict[keyChoice]['Root']} dim7`,
+        chordScale: `${this.keyDict[keyChoice]['Root']} Whole-Half Dimimished Scale`,
         scale: [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["2"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["4"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["b6"], this.keyDict[keyChoice]["6"], this.keyDict[keyChoice]["7"]],
         scaleFile: `./assets/mp3s/${keyChoice} Fully-Diminished scale.mp3`,
         chordFile: `./assets/mp3s/${keyChoice} Fully-Diminished chord.mp3`,
         chord_guide_tone: {
-            "name": `${keyChoice} Diminished Chord Tones`,
+            "name": `${this.keyDict[keyChoice]['Root']} Diminished Chord Tones`,
             "keys": [this.keyDict[keyChoice]["1"], this.keyDict[keyChoice]["b3"], this.keyDict[keyChoice]["b5"], this.keyDict[keyChoice]["6"]],
             "path": `./assets/mp3s/${keyChoice} Fully-Diminished chord tones.mp3`
         },
