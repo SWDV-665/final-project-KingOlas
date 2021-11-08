@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { Howl, Howler } from 'howler';
 
 
@@ -8,7 +7,7 @@ import { Howl, Howler } from 'howler';
 })
 export class MediaServiceService {
 
-  constructor(private media:Media) {
+  constructor(private Howl:Howl, private Howler:Howler) {
     console.log('Media Service Running')
 
     Howler.volume(0.45);
