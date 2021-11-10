@@ -3558,20 +3558,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MediaServiceService": () => (/* binding */ MediaServiceService)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4762);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ionic-native/media/ngx */ 3661);
-/* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! howler */ 55);
-/* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(howler__WEBPACK_IMPORTED_MODULE_1__);
-
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! howler */ 55);
+/* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(howler__WEBPACK_IMPORTED_MODULE_0__);
 
 
 
 let MediaServiceService = class MediaServiceService {
-    constructor(media) {
-        this.media = media;
+    constructor(Howl, Howler) {
+        this.Howl = Howl;
+        this.Howler = Howler;
         console.log('Media Service Running');
-        howler__WEBPACK_IMPORTED_MODULE_1__.Howler.volume(0.45);
+        Howler.volume(0.45);
         // MongoConnect();
         //   function MongoConnect() {
         //       const { MongoClient } = require('mongodb');
@@ -3594,7 +3593,7 @@ let MediaServiceService = class MediaServiceService {
     }
     getTrack(keyChoice, chordType, location) {
         console.log(`Getting Chord Audio: ${keyChoice} ${chordType}`);
-        this.player = new howler__WEBPACK_IMPORTED_MODULE_1__.Howl({
+        this.player = new howler__WEBPACK_IMPORTED_MODULE_0__.Howl({
             src: [location]
         });
         const filename = location.split('\\').pop().split('/').pop();
@@ -3608,10 +3607,11 @@ let MediaServiceService = class MediaServiceService {
     }
 };
 MediaServiceService.ctorParameters = () => [
-    { type: _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_0__.Media }
+    { type: howler__WEBPACK_IMPORTED_MODULE_0__.Howl },
+    { type: howler__WEBPACK_IMPORTED_MODULE_0__.Howler }
 ];
-MediaServiceService = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Injectable)({
+MediaServiceService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
         providedIn: 'root'
     })
 ], MediaServiceService);
