@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { Howl, Howler } from 'howler';
 
 
@@ -8,10 +7,10 @@ import { Howl, Howler } from 'howler';
 })
 export class MediaServiceService {
 
-  constructor(private media:Media) {
+  constructor(private howl:Howl, howler:Howler) {
     console.log('Media Service Running')
 
-    Howler.volume(0.45);
+    howler.volume(0.45);
 
     // MongoConnect();
 
