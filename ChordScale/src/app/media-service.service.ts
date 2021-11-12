@@ -7,7 +7,8 @@ import { Howl, Howler } from 'howler';
 })
 export class MediaServiceService {
 
-  constructor(private howl:Howl, howler:Howler) {
+  constructor(private howl:Howl) {
+    
     console.log('Media Service Running')
 
     howler.volume(0.45);
