@@ -7,10 +7,10 @@ import { Howl, Howler } from 'howler';
 })
 export class MediaServiceService {
 
-  constructor(private Howler:Howl, Howl: Howl) {
+  constructor(private howl:Howl, howler:Howler) {
     console.log('Media Service Running')
 
-    Howler.volume(0.45);
+    howler.volume(0.45);
 
     // MongoConnect();
 
