@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { Howl } from 'howler';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Media, MediaObject } from '@ionic-native/media/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Media],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Howl],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
